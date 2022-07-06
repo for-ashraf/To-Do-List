@@ -1,47 +1,63 @@
 import './style.css';
 
-const inputText = document.querySelector('input');
-const Container = document.querySelector('.container');
+const dataStructure = [
+  {
+    description: 'Wash the Dishes',
+    completed: false,
+    index: 0,
+  },
+  {
+    description: 'Complete To Do list project',
+    completed: false,
+    index: 1,
+  },
+];
 
-class Objects {
-  constructor(description, completed, index) {
-    this.description = description;
-    this.completed = completed;
-    this.index = index;
-  }
-}
+const toDoList = document.querySelector('.todo-list');
+const creatingNewItem = (text) => {
+  const labelItem = document.createElement('label');
+  labelItem.classList.add('todo-list-label');
+  const inputCheckbox = document.createElement('input');
+  inputCheckbox.setAttribute('type', 'checkbox');
+  const textItem = document.createElement('p');
+  textItem.textContent = text;
+  const inputClosure = document.createElement('input');
+  inputClosure.setAttribute('type', 'button');
+  inputClosure.setAttribute('value', 'X');
 
-const Array = [];
-
-const add = (Value) => {
-  const todo = document.createElement('div');
-  todo.className = 'todo';
-  todo.innerHTML += `
-    <input type='checkbox' class='checkbox'>
-    <span>${Value}</span>
-    <i class='fas fa-ellipsis-v'></i>
-    <i class='fas fa-trash-alt'></i>
-  `;
-  Container.appendChild(todo);
-  const checkbox = document.querySelectorAll('.checkbox');
-  checkbox.forEach((i) => {
-    i.addEventListener('click', () => {
-      i.parentElement.classList.toggle('checkedContainer');
-      i.nextElementSibling.classList.toggle('checkToDo');
-      i.parentElement.lastElementChild.classList.toggle('trash-active');
-      i.parentElement.lastElementChild.previousElementSibling.classList.toggle('edited-disable');
-    });
-  });
-
-  const object = new Objects(Value, false, checkbox.length - 1);
-  Array.push(object);
-  localStorage.setItem('list', JSON.stringify(Array));
+  toDoList.appendChild(labelItem);
+  labelItem.appendChild(inputCheckbox);
+  labelItem.appendChild(textItem);
+  labelItem.appendChild(inputClosure);
 };
 
-inputText.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter' && inputText.value) {
-    e.preventDefault();
-    add(inputText.value);
-    inputText.value = null;
+const cleanList = () => {
+  const toDoList = document.querySelector('.todo-list');
+  while (toDoList.firstChild) {
+    toDoList.removeChild(toDoList.lastChild);
   }
-});
+};
+
+const render = () => {
+  cleanList();
+  dataStructure.forEach((item) => creatingNewItem(item.description));
+};
+
+const newItem = document.getElementById('newItem');
+
+const insertNewItem = (event) => {
+  const tecla = event.key;
+  const text = event.target.value;
+  if (tecla === 'Enter') {
+    dataStructure.push({
+      description: text,
+      completed: false,
+      index: dataStructure.length,
+    });
+    newItem.value = '';
+    render();
+  }
+};
+newItem.addEventListener('keypress', insertNewItem);
+
+render();

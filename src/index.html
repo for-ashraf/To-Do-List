@@ -1,25 +1,30 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do List</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"/>
-  </head>
-  <body>
-    <section class="list-container">
-      <div class="header">
-        <h1>Today's ToDo</h1>
-        <i class="fas fa-sync"></i>
-
-      </div>
-      <form>
-        <input type="text" placeholder="Add to your list..." >
-        <div class="container">
-
+    <title>To-do List</title>
+</head>
+<body>
+    <div class="todo">
+        <div class="todo-title">
+            <p>Today's To Do</p>
         </div>
-        <button type="button">Clear all Tasks completed</button>
-      </form>
-    </section>
-  </body>
+
+        <div class="todo-new-item">
+            <input id="newItem" type="text" placeholder="Press enter to submit">
+        </div>
+
+        <div class="todo-list">
+            <!--dynamically generating items-->
+        </div>
+
+        <div class="todo-clear-all-completed">
+            <p>Clear all completed</p>
+        </div>
+
+
+    </div>
+</body>
 </html>

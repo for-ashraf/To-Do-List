@@ -1,8 +1,8 @@
 {
   "name": "to-do-list",
   "version": "1.0.0",
-  "description": "",
-  "main": "webpack.config.js",
+  "description": "This is a microverse project for building the To-do List",
+  "main": "index.js",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fahimy143/To-Do-List.git"
+    "url": "git+https://github.com/VitorGuedesMadeira/To-do-List.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/fahimy143/To-Do-List/issues"
+    "url": "https://github.com/VitorGuedesMadeira/To-do-List/issues"
   },
-  "homepage": "https://github.com/fahimy143/To-Do-List#readme",
+  "homepage": "https://github.com/VitorGuedesMadeira/To-do-List#readme",
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "css-loader": "^6.7.1",
