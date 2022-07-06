@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/VitorGuedesMadeira/To-do-List.git"
+    "url": "git+https://github.com/for-ashraf/To-Do-List.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/VitorGuedesMadeira/To-do-List/issues"
+    "url": "https://github.com/for-ashraf/To-Do-List/issues"
   },
-  "homepage": "https://github.com/VitorGuedesMadeira/To-do-List#readme",
+  "homepage": "https://github.com/for-ashraf/To-Do-List/#readme",
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "css-loader": "^6.7.1",
