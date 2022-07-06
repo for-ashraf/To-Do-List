@@ -28,10 +28,10 @@ To get a local copy up and running follow these simple example steps.
 
 ## Author
 
-👤 **Fahimy**
+👤 **Muhammad Ashraf**
 
 - GitHub: [@for-ashraf](https://github.com/for-ashraf)
-- LinkedIn: [Muhammad Ashraf](https://www.linkedin.com/in/mustafa-fahimy-307566236/)
+- LinkedIn: [Muhammad Ashraf](https://www.linkedin.com/)
 
 
 ## 🤝 Contributing
