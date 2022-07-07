@@ -21,14 +21,14 @@ module.exports = {
       },
     ],
   },
- 
- devServer: {
+
+  devServer: {
     static: './dist',
   },
   plugins: [
     new HtmlWebpackPlugin({
-    template: './src/index.html',
-      }),
+      template: './src/index.html',
+    }),
   ],
   optimization: {
     runtimeChunk: 'single',
