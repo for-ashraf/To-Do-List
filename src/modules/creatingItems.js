@@ -1,7 +1,6 @@
 import trashIcon from './myTrash.png';
-import { dataStructure, render } from '../index.js'; // eslint-disable-line import/no-cycle
+import { myFunc, render } from '../index.js'; // eslint-disable-line import/no-cycle
 
-const dataStructure2 = dataStructure;
 const toDoList = document.querySelector('.todo-list');
 export default class ListItems {
 static creatingNewItem = (text, index) => {
@@ -24,22 +23,22 @@ static creatingNewItem = (text, index) => {
   labelItem.appendChild(inputClosure);
 
   inputClosure.addEventListener('click', () => {
-    dataStructure2.splice(index, 1);
+    myFunc().splice(index, 1);
     render();
-    for (let i = 0; i < dataStructure2.length; i += 1) {
-      dataStructure2[i].index = i;
+    for (let i = 0; i < myFunc().length; i += 1) {
+      myFunc()[i].index = i;
     }
-    localStorage.setItem('listItem', JSON.stringify(dataStructure2));
+    localStorage.setItem('listItem', JSON.stringify(myFunc()));
   });
 
   labelItem.addEventListener('click', () => {
     const itemId = index;
     if (inputCheckbox.checked) {
       labelItem.classList.add('show');
-      dataStructure2[itemId].completed = true;
+      myFunc()[itemId].completed = true;
     } else {
       labelItem.classList.remove('show');
-      dataStructure2[itemId].completed = false;
+      myFunc()[itemId].completed = false;
     }
   });
 
@@ -47,8 +46,8 @@ static creatingNewItem = (text, index) => {
     if (e.target.classList.contains('input-text')) {
       const something = e.target;
       const thisId = Number(something.id.split('_')[1]);
-      dataStructure2[thisId].description = e.target.value;
-      localStorage.setItem('listItem', JSON.stringify(dataStructure2));
+      myFunc()[thisId].description = e.target.value;
+      localStorage.setItem('listItem', JSON.stringify(myFunc()));
     }
   });
 };
