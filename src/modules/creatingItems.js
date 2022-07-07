@@ -30,7 +30,7 @@ static creatingNewItem = (text, index) => {
     }
     localStorage.setItem('listItem', JSON.stringify(dataStructure));
   });
- 
+
   labelItem.addEventListener('click', () => {
     const itemId = index;
     if (inputCheckbox.checked) {
