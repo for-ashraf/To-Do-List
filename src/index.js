@@ -75,5 +75,5 @@ window.addEventListener('load', () => {
   }
 });
 
-export { dataStructure }
+export { dataStructure };
 render();
