@@ -1,7 +1,7 @@
 import './style.css';
 import ListItems from './modules/creatingItems.js'; // eslint-disable-line import/no-cycle
 
-//esling-disable-next-line
+// esling-disable-next-line no-mutable-exports
 export let dataStructure = [];
 
 const cleanList = () => {
