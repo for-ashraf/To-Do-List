@@ -1,40 +1,6 @@
 import './style.css';
-
-const dataStructure = [
-  {
-    description: 'Wash the Dishes',
-    completed: false,
-    index: 0,
-  },
-  {
-    description: 'Complete To Do list project',
-    completed: false,
-    index: 1,
-  },
-  {
-    description: 'Completed the Day2 Project',
-    completed: true,
-    index: 2,
-  },
-];
-
-const toDoList = document.querySelector('.todo-list');
-const creatingNewItem = (text) => {
-  const labelItem = document.createElement('label');
-  labelItem.classList.add('todo-list-label');
-  const inputCheckbox = document.createElement('input');
-  inputCheckbox.setAttribute('type', 'checkbox');
-  const textItem = document.createElement('p');
-  textItem.textContent = text;
-  const inputClosure = document.createElement('input');
-  inputClosure.setAttribute('type', 'button');
-  inputClosure.setAttribute('value', 'X');
-
-  toDoList.appendChild(labelItem);
-  labelItem.appendChild(inputCheckbox);
-  labelItem.appendChild(textItem);
-  labelItem.appendChild(inputClosure);
-};
+import ListItems from './modules/creatingItems.js'; // eslint-disable-line import/no-cycle
+export let dataStructure = [];
 
 const cleanList = () => {
   const toDoList = document.querySelector('.todo-list');
@@ -43,26 +9,69 @@ const cleanList = () => {
   }
 };
 
-const render = () => {
+export const render = () => {
   cleanList();
-  dataStructure.forEach((item) => creatingNewItem(item.description));
+  for (let i = 0; i < dataStructure.length; i += 1) {
+    ListItems.creatingNewItem(dataStructure[i].description, i);
+  }
 };
 
-const newItem = document.getElementById('newItem');
+const clearAll = document.querySelector('.todo-clear-all-completed');
+clearAll.addEventListener('click', () => {
+  dataStructure = dataStructure.filter((item) => !item.completed);
+  render();
+  localStorage.setItem('listItem', JSON.stringify(dataStructure));
+});
 
+const selectAll = document.querySelector('.select-all');
+selectAll.addEventListener('click', () => {
+  dataStructure = [];
+  localStorage.setItem('listItem', JSON.stringify(dataStructure));
+  render();
+});
+
+const clickPlus = document.querySelector('.image-plus');
+const newItem = document.getElementById('newItem');
 const insertNewItem = (event) => {
   const tecla = event.key;
   const text = event.target.value;
   if (tecla === 'Enter') {
-    dataStructure.push({
-      description: text,
-      completed: false,
-      index: dataStructure.length,
-    });
+    dataStructure.push(
+      {
+        description: text,
+        completed: false,
+        index: dataStructure.length,
+      },
+    );
     newItem.value = '';
     render();
+    localStorage.setItem('listItem', JSON.stringify(dataStructure));
   }
 };
 newItem.addEventListener('keypress', insertNewItem);
+
+clickPlus.addEventListener('click', () => {
+  const { value } = newItem;
+  dataStructure.push(
+    {
+      description: value,
+      completed: false,
+      index: dataStructure.length,
+    },
+  );
+  newItem.value = '';
+  render();
+  localStorage.setItem('listItem', JSON.stringify(dataStructure));
+});
+
+window.addEventListener('load', () => {
+  if (localStorage.getItem('listItem')) {
+    dataStructure.push(...JSON.parse(localStorage.getItem('listItem')));
+  }
+  for (let i = 0; i < dataStructure.length; i += 1) {
+    const newObj = dataStructure[i];
+    ListItems.creatingNewItem(newObj.description, i);
+  }
+});
 
 render();
