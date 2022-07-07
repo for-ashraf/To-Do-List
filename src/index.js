@@ -1,7 +1,7 @@
 import './style.css';
 import ListItems from './modules/creatingItems.js'; // eslint-disable-line import/no-cycle
 
-export const dataStructure = [];
+export let dataStructure = [];
 
 const cleanList = () => {
   const toDoList = document.querySelector('.todo-list');
