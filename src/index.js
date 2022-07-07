@@ -1,7 +1,8 @@
 import './style.css';
-import ListItems from './modules/creatingItems.js'; // eslint-disable-line import/no-cycle
+import Dynamic from './modules/creatingItems.js'; // eslint-disable-line import/no-cycle
 
-let dataStructure = [];
+// ------ DATA STRUCTURE ------- //
+export let dataStructure = [];
 
 const cleanList = () => {
   const toDoList = document.querySelector('.todo-list');
@@ -75,5 +76,4 @@ window.addEventListener('load', () => {
   }
 });
 
-export { dataStructure };
 render();
