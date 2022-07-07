@@ -1,7 +1,7 @@
 import trashIcon from './myTrash.png';
 import { dataStructure, render } from '../index.js'; // eslint-disable-line import/no-cycle
 
-let dataStructure2 = dataStructure;
+const dataStructure2 = dataStructure;
 const toDoList = document.querySelector('.todo-list');
 export default class ListItems {
 static creatingNewItem = (text, index) => {
@@ -24,7 +24,7 @@ static creatingNewItem = (text, index) => {
   labelItem.appendChild(inputClosure);
 
   inputClosure.addEventListener('click', () => {
-    dataStructure22.splice(index, 1);
+    dataStructure2.splice(index, 1);
     render();
     for (let i = 0; i < dataStructure2.length; i += 1) {
       dataStructure2[i].index = i;
