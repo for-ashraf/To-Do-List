@@ -1,8 +1,8 @@
 import './style.css';
 import ListItems from './modules/creatingItems.js'; // eslint-disable-line import/no-cycle
 
-// ------ DATA STRUCTURE ------- //
-export let dataStructure = [];
+
+let dataStructure = [];
 
 const cleanList = () => {
   const toDoList = document.querySelector('.todo-list');
@@ -25,7 +25,6 @@ clearAll.addEventListener('click', () => {
   localStorage.setItem('listItem', JSON.stringify(dataStructure));
 });
 
-// ------------- delete ALL ----------------//
 const selectAll = document.querySelector('.select-all');
 selectAll.addEventListener('click', () => {
   dataStructure = [];
@@ -33,7 +32,6 @@ selectAll.addEventListener('click', () => {
   render();
 });
 
-// ------------- Add new item --------------//
 const clickPlus = document.querySelector('.image-plus');
 const newItem = document.getElementById('newItem');
 const insertNewItem = (event) => {
@@ -67,7 +65,7 @@ clickPlus.addEventListener('click', () => {
   render();
   localStorage.setItem('listItem', JSON.stringify(dataStructure));
 });
-// ------------- Local Storage --------------//
+
 window.addEventListener('load', () => {
   if (localStorage.getItem('listItem')) {
     dataStructure.push(...JSON.parse(localStorage.getItem('listItem')));
@@ -78,4 +76,5 @@ window.addEventListener('load', () => {
   }
 });
 
+export { dataStructure };
 render();
