@@ -25,6 +25,7 @@ clearAll.addEventListener('click', () => {
   localStorage.setItem('listItem', JSON.stringify(dataStructure));
 });
 
+// ------------- delete ALL ----------------//
 const selectAll = document.querySelector('.select-all');
 selectAll.addEventListener('click', () => {
   dataStructure = [];
@@ -32,6 +33,7 @@ selectAll.addEventListener('click', () => {
   render();
 });
 
+// ------------- Add new item --------------//
 const clickPlus = document.querySelector('.image-plus');
 const newItem = document.getElementById('newItem');
 const insertNewItem = (event) => {
@@ -65,7 +67,7 @@ clickPlus.addEventListener('click', () => {
   render();
   localStorage.setItem('listItem', JSON.stringify(dataStructure));
 });
-
+// ------------- Local Storage --------------//
 window.addEventListener('load', () => {
   if (localStorage.getItem('listItem')) {
     dataStructure.push(...JSON.parse(localStorage.getItem('listItem')));
