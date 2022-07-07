@@ -2,46 +2,35 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  const HtmlWebpackPlugin = require('html-webpack-plugin');
+  entry: './src/index.js',
   mode: 'development',
-  entry: {
-    index: './src/index.js',
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: 'Output Management',
-    }),
-  ],
-  devServer: {
-    static: './dist',
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './src/index.html',
-    }),
-  ],
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
-  optimization: {
-    runtimeChunk: 'single',
-  },
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'], // for css
-      },
-      {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource', // for images
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: 'asset/resource', // for fonts
+        type: 'asset/resource',
       },
     ],
+  },
+  
+  devServer: {
+    static: './dist',
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+    template: './src/index.html',
+    }),
+  ],
+  optimization: {
+    runtimeChunk: 'single',
   },
 };

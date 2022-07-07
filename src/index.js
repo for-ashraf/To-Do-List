@@ -11,6 +11,11 @@ const dataStructure = [
     completed: false,
     index: 1,
   },
+  {
+    description: 'Completed the Day2 Project',
+    completed: true,
+    index: 2,
+  },
 ];
 
 const toDoList = document.querySelector('.todo-list');
