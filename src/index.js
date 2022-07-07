@@ -1,5 +1,5 @@
 import './style.css';
-import Dynamic from './modules/creatingItems.js'; // eslint-disable-line import/no-cycle
+import ListItems from './modules/creatingItems.js'; // eslint-disable-line import/no-cycle
 
 // ------ DATA STRUCTURE ------- //
 export let dataStructure = [];
