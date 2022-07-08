@@ -51,7 +51,7 @@ clickPlus.addEventListener('click', () => {
   localStorage.setItem('listItem', JSON.stringify(DataClass.dataStructure));
 });
 
-window.addEventListener('load', () => { 
+window.addEventListener('load', () => {
   if (localStorage.getItem('listItem')) {
     DataClass.dataStructure.push(...JSON.parse(localStorage.getItem('listItem')));
   }
