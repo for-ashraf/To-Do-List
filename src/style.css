@@ -107,7 +107,7 @@ input[type='checkbox']:checked + .input-text {
 }
 
 .todo-clear-all-completed {
-  background-color: rgb(112, 166, 188);;
+  background-color: rgb(112, 166, 188);
   padding: 15px;
   text-align: center;
   border-top: 1px solid grey;
